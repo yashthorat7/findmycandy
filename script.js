@@ -121,7 +121,6 @@ class MessageCarousel {
 document.addEventListener('DOMContentLoaded', () => {
     new NoiseBackground();
     
-    // Create darker background with pattern
     const darkerBg = document.createElement('div');
     darkerBg.className = 'darker-background';
     document.body.appendChild(darkerBg);
@@ -134,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterSelect = document.querySelector('.filter-select');
     const searchBtn = document.querySelector('.search-btn');
     
-    // File type extensions mapping
+    // File type extensions
     const fileTypes = {
         all: '-1',
         video: 'mkv|mp4|avi|mov|mpg|wmv|divx|mpeg',
