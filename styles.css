@@ -225,7 +225,7 @@ h1 {
     }
 
     h1 {
-        font-size: clamp(60px, 16vw, 120px);
+        font-size: clamp(70px, 17vw, 125px);
         margin-bottom: 1.5rem;
         width: 100%;
         max-width: 100%;
@@ -253,7 +253,7 @@ h1 {
         background: rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 1rem;
-        padding: 9px 24px;
+        padding: 9px 16px;
     }
 
     .search-row {
@@ -276,6 +276,7 @@ h1 {
     .search-btn {
         min-width: 42vw;
         height: 42px;
+        border-radius: 4px;
         font-size: 1rem;
     }
 }
