@@ -157,7 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Search function
     function startSearch() {
         const query = searchInput.value.trim();
-        if (!query) return;
+        if (!query) {
+            navigator.vibrate(200);
+            return;
+        }
+            
         
         const selectedFilter = filterSelect.value;
         const fileType = fileTypes[selectedFilter];
