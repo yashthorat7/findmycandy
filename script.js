@@ -2,11 +2,11 @@ class NoiseBackground {
     constructor() {
         this.canvas = document.getElementById('noiseCanvas');
         this.ctx = this.canvas.getContext('2d');
-        this.n = 50;
-        this.pcs = 0.05;
-        this.scale = 0.002;
+        this.n = 30;
+        this.pcs = 0.1;
+        this.scale = 0.003;
         this.z = 1;
-        this.speed = 0.0002;
+        this.speed = 0.0004;
         this.p = new Array(512);
         this.permutation = [151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,190,6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,88,237,149,56,87,174,20,125,136,171,168,68,175,74,165,71,134,139,48,27,166,77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,102,143,54,65,25,63,161,1,216,80,73,209,76,132,187,208,89,18,169,200,196,135,130,116,188,159,86,164,100,109,198,173,186,3,64,52,217,226,250,124,123,5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,223,183,170,213,119,248,152,2,44,154,163,70,221,153,101,155,167,43,172,9,129,22,39,253,19,98,108,110,79,113,224,232,178,185,112,104,218,246,97,228,251,34,242,193,238,210,144,12,191,179,162,241,81,51,145,235,249,14,239,107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,150,254,138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180];
         
@@ -21,8 +21,15 @@ class NoiseBackground {
     }
 
     resize() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
+        const dpr = window.devicePixelRatio || 1;
+        const rect = this.canvas.getBoundingClientRect();
+        
+        this.canvas.width = rect.width * dpr;
+        this.canvas.height = rect.height * dpr;
+        
+        this.ctx.scale(dpr, dpr);
+        this.canvas.style.width = `${rect.width}px`;
+        this.canvas.style.height = `${rect.height}px`;
     }
 
     noise(x, y, z) {
@@ -61,16 +68,18 @@ class NoiseBackground {
     }
 
     draw() {
-        this.ctx.fillStyle = 'rgba(20, 13, 13, 0.05)';
+        this.ctx.fillStyle = 'rgba(14, 8, 8, 0.98)';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.82)';
         
-        for (let y = 0; y <= this.canvas.height; y += 1) {
-            for (let x = 0; x <= this.canvas.width; x += 1) {
+        const pixelSize = window.innerWidth <= 640 ? 2 : 1;
+        
+        for (let y = 0; y <= this.canvas.height; y += pixelSize) {
+            for (let x = 0; x <= this.canvas.width; x += pixelSize) {
                 const pn = (this.noise(x * this.scale, y * this.scale, this.z) + 1) * 0.5;
                 if ((this.n * pn) % 1 < this.pcs) {
-                    this.ctx.fillRect(x, y, 1, 1);
+                    this.ctx.fillRect(x, y, pixelSize, pixelSize);
                 }
             }
         }
@@ -136,11 +145,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // File type extensions
     const fileTypes = {
         all: '-1',
-        video: 'mkv|mp4|avi|mov|mpg|wmv|divx|mpeg',
-        image: 'jpg|png|bmp|gif|tif|tiff|psd',
-        book: 'mobi|cbz|cbr|cbc|chm|epub|fb2|lit|lrf|odt|pdf|prc|pdb|pml|rb|rtf|tcr|doc|docx',
-        music: 'mp3|wav|ac3|ogg|flac|wma|m4a|aac|mod'
+        video: 'mp4|mkv|avi|mov|wmv|flv|webm|mpeg|mpg|m4v|3gp|ogv|ts|divx',
+        music: 'mp3|wav|flac|aac|m4a|ogg|wma|ac3|opus|alac|aiff|mid|midi|mod',
+        image: 'jpg|jpeg|png|gif|bmp|webp|svg|tif|tiff|psd|heif|heic|raw|ico',
+        document: 'pdf|doc|docx|xls|xlsx|ppt|pptx|csv|odt|ods|odp|rtf|tex|md|epub|mobi|cbz|cbr|cbc|chm|djvu|fb2|azw|azw3|ibooks|lit|lrf|prc|pdb|pml|rb|tcr|txt',
+        software: 'exe|msi|bat|sh|bin|cmd|app|deb|rpm|zip|rar|7z|tar|gz|bz2|xz|iso|dmg|cab|apk',
+        torrent: 'torrent'
     };
+    
 
     // Search function
     function startSearch() {
