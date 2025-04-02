@@ -59,8 +59,8 @@ function startSearch() {
     window.open(`https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`, '_blank');
 }
 
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
+function initUI() {
+    document.body.classList.add('fonts-loaded');
     initMessageCarousel();
     
     const searchInput = document.getElementById('searchInput');
@@ -70,5 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
     searchBtn.addEventListener('click', startSearch);
     searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') startSearch();
+    });
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.style.visibility = 'hidden';
+    
+    const freedom = new FontFace('Forever Freedom', 'url(assets/ForeverFreedomRegular.otf)');
+    freedom.load().then(() => {
+        document.fonts.add(freedom);
+        document.body.style.visibility = 'visible';
+        initUI();
+    }).catch((err) => {
+        console.error('Font loading failed:', err);
+        document.body.style.visibility = 'visible';
+        initUI();
     });
 });
