@@ -11,7 +11,7 @@
     --text-placeholder: rgba(255, 255, 255, 0.5);
     --text-carousel: #b974747a;
     --text-title: #fff4f4;
-    --background-primary: #110a0a;
+    --background-primary: #140909;
     --background-secondary: rgba(0, 0, 0, 0.2);
     --border-color: rgba(255, 255, 255, 0.1);
     --button-primary: #883434;
@@ -171,56 +171,6 @@ h1 {
     background: var(--button-hover);
 }
 
-.background-pattern {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: var(--background-primary);
-    opacity: 0.95;
-    overflow: hidden;
-}
-
-.wave {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: transparent;
-    border: 1px solid var(--wave-border-1);
-    border-radius: 45% 45% 0 0;
-    animation: wave 15s infinite linear;
-    transform-origin: 50% 50%;
-}
-
-.wave:nth-child(1) {
-    animation-delay: 0s;
-    border-color: var(--wave-border-1);
-}
-
-.wave:nth-child(2) {
-    animation-delay: -3s;
-    border-color: var(--wave-border-2);
-}
-
-.wave:nth-child(3) {
-    animation-delay: -6s;
-    border-color: var(--wave-border-3);
-}
-
-.wave:nth-child(4) {
-    animation-delay: -9s;
-    border-color: var(--wave-border-4);
-}
-
-.wave:nth-child(5) {
-    animation-delay: -12s;
-    border-color: var(--wave-border-5);
-}
-
 .search-row {
     display: flex;
     align-items: center;
@@ -228,7 +178,7 @@ h1 {
 
 .message-carousel {
     position: fixed;
-    bottom: 10svh;
+    bottom: 5svh;
     left: 50%;
     transform: translateX(-50%);
     color: var(--text-carousel);
@@ -238,11 +188,11 @@ h1 {
     text-align: center;
     transition: opacity 0.5s ease-in-out;
     text-shadow: 0 0 10px var(--shadow-color);
-    max-width: 90%;
+    width: 100%;
     z-index: 10;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0 20px;
+    padding: 0 5px;
 }
 
 @media (max-width: 640px) {
@@ -311,7 +261,6 @@ h1 {
 
     .message-carousel {
         font-size: 0.9rem;
-        max-width: 85%;
         padding: 0 15px;
     }
 }

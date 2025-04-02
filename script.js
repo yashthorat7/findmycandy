@@ -2,15 +2,15 @@
 let messageElement;
 let currentMessageIndex = 0;
 const messages = [
-    "Unlock a world of possibilities with every search",
-    "Navigate through endless digital libraries effortlessly",
-    "Find what others can't with our advanced search",
-    "Explore the vast digital landscape with confidence",
-    "Your trusted tool for digital content discovery",
-    "Search beyond the surface of the web",
-    "The name of this website is completely intentional",
-    "Made by Yash Thorat",
-    "I am not sorry for making this"
+    "unlock a world of possibilities with every search",
+    "navigate through endless digital libraries effortlessly",
+    "find what others can't with our advanced search",
+    "explore the vast digital landscape with confidence",
+    "your trusted tool for digital content discovery",
+    "search beyond the surface of the web",
+    "the name of this website is completely intentional",
+    "made by yash thorat",
+    "i am not sorry for making this"
 ];
 
 function initMessageCarousel() {
