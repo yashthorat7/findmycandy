@@ -1,4 +1,3 @@
-// Message carousel variables and functions
 let messageElement;
 let currentMessageIndex = 0;
 const messages = [
@@ -18,14 +17,12 @@ function initMessageCarousel() {
     messageElement = document.createElement('div');
     messageElement.className = 'message-carousel';
     document.body.appendChild(messageElement);
-    
     showNextMessage();
     setInterval(showNextMessage, 5000);
 }
 
 function showNextMessage() {
     messageElement.style.opacity = '0';
-    
     setTimeout(() => {
         messageElement.textContent = messages[currentMessageIndex];
         messageElement.style.opacity = '1';
@@ -33,7 +30,6 @@ function showNextMessage() {
     }, 500);
 }
 
-// File type extensions
 const fileTypes = {
     all: '-1',
     video: 'mp4|mkv|avi|mov|wmv|flv|webm|mpeg|mpg|m4v|3gp|ogv|ts|divx',
@@ -45,106 +41,60 @@ const fileTypes = {
     drive: 'drive'
 };
 
-// Search query generators
 const searchGenerators = {
-    // Directory search with intitle:index.of
-    directory: (query, fileType) => {
-        if (fileType === 'all') {
-            return `intitle:index.of ${query}`;
-        } else {
-            return `intitle:index.of ${query} (${fileType})`;
-        }
-    },
-    
-    // Google Drive search
-    drive: (query, fileType) => {
-        if (fileType === 'all') {
-            return `site:drive.google.com ${query}`;
-        } else {
-            // For drive search, we use filetype: instead of parentheses
-            const firstFileType = fileType.split('|')[0];
-            return `site:drive.google.com ${query} filetype:${firstFileType}`;
-        }
-    }
+    directory: (query, fileType) =>
+        fileType === '-1'
+            ? `intitle:index.of ${query}`
+            : `intitle:index.of ${query} (${fileType})`,
+    drive: (query) => `site:drive.google.com ${query}`
 };
 
-// Advanced search options
 const advancedSearchOptions = {
-    // Add year to search query
-    addYear: (query, year) => {
-        return `${query} ${year}`;
-    },
-    
-    // Add quality to search query
-    addQuality: (query, quality) => {
-        return `${query} ${quality}`;
-    },
-    
-    // Add language to search query
-    addLanguage: (query, language) => {
-        return `${query} ${language}`;
-    },
-    
-    // Add size to search query
-    addSize: (query, size) => {
-        return `${query} ${size}`;
-    }
+    addYear: (query, year) => `${query} ${year}`,
+    addQuality: (query, quality) => `${query} ${quality}`,
+    addLanguage: (query, language) => `${query} ${language}`,
+    addSize: (query, size) => `${query} ${size}`
 };
 
 function startSearch() {
     const searchInput = document.getElementById('searchInput');
     const filterSelect = document.querySelector('.filter-select');
     const query = searchInput.value.trim();
-    
     if (!query) {
         navigator.vibrate(200);
         return;
     }
-    
     const selectedFilter = filterSelect.value;
-    const fileType = fileTypes[selectedFilter];
-    
-    let searchQuery;
-    
-    // Determine which search generator to use
+    let searchQuery = "";
     if (selectedFilter === 'drive') {
-        // Use drive search generator
-        searchQuery = searchGenerators.drive(query, fileType);
+        searchQuery = searchGenerators.drive(query);
+    } else if (selectedFilter === 'all') {
+        const combinedTypes = [fileTypes.video, fileTypes.music, fileTypes.image, fileTypes.document, fileTypes.software].join('|');
+        searchQuery = `intitle:index.of ${query} (${combinedTypes})`;
     } else {
-        // Use directory search generator
-        searchQuery = searchGenerators.directory(query, fileType);
+        searchQuery = searchGenerators.directory(query, fileTypes[selectedFilter]);
     }
-    
-    // Apply advanced search options if needed
-    // This is where you could add more complex search options
-    // For example, detecting year patterns in the query
     const yearMatch = query.match(/\b(19|20)\d{2}\b/);
     if (yearMatch) {
         searchQuery = advancedSearchOptions.addYear(searchQuery, yearMatch[0]);
     }
-    
-    // Open search in new tab
     window.open(`https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`, '_blank');
 }
 
 function initUI() {
     document.body.classList.add('fonts-loaded');
     initMessageCarousel();
-    
     const searchInput = document.getElementById('searchInput');
     const filterSelect = document.querySelector('.filter-select');
     const searchBtn = document.querySelector('.search-btn');
-    
     searchBtn.addEventListener('click', startSearch);
     searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') startSearch();
     });
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     document.body.style.visibility = 'hidden';
-    
     const freedom = new FontFace('Forever Freedom', 'url(assets/ForeverFreedomRegular.otf)');
     freedom.load().then(() => {
         document.fonts.add(freedom);

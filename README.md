@@ -37,7 +37,7 @@ Follow these simple steps to unlock the power of WhereIsMyCandy on your system:
 ### 1️⃣ Clone the Repository  
 Clone the repository to your local machine:  
 ```bash
-git clone https://github.com/yourusername/WhereIsMyCandy.git
+git clone https://github.com/yashthorat7/WhereIsMyCandy.git
 ```
 
 ### 2️⃣ Opening the Application  
