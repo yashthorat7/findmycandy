@@ -1,6 +1,6 @@
 # 🔍 WhereIsMyCandy  
-A revolutionary web tool that unveils hidden open directories across the internet!  
-**WhereIsMyCandy** provides a sleek, intuitive interface for discovering open directories using Google's powerful "intitle:index.of" technique.  
+A revolutionary web tool that unveils hidden open directories across the internet!
+**WhereIsMyCandy** provides a sleek, intuitive interface for discovering open directories using Google.  
 
 
 ## ✨ Features  
@@ -46,15 +46,9 @@ No complex setup required! Simply open index.html in your browser:
 # Navigate to the directory
 cd WhereIsMyCandy
 
-# Open with your default browser
 # On Windows
 start index.html
 
-# On macOS
-open index.html
-
-# On Linux
-xdg-open index.html
 ```
 
 ## 🛠️ How to Use  
