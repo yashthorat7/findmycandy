@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/favicon.ico?v=2" type="image/x-icon">
+    <title>WhereIsMyCandy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>WHEREISMYCANDY</h1>
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="Type Here...">
+                <div class="search-row">
+                    <div class="dropdown-wrapper">
+                        <select class="filter-select">
+                            <option value="all">All</option>
+                            <option value="video">Videos</option>
+                            <option value="music">Music</option>
+                            <option value="image">Images</option>
+                            <option value="document">Documents</option>
+                            <option value="software">Software</option>
+                            <option value="torrent">Torrents</option>
+                            <option value="drive">Google Drive</option>
+                        </select>
+                    </div>
+                    <button class="search-btn">Search</button>
+                </div>
+            </div>
+            <div class="message-carousel"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
