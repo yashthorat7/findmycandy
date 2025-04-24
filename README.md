@@ -19,7 +19,6 @@ A revolutionary web tool that unveils hidden open directories across the interne
 ```
 🌟 WhereIsMyCandy/
 ├── 🖼️ assets/
-│   ├── background.png             # Subtle background pattern
 │   ├── favicon.ico                # Website favicon
 │   └── ForeverFreedomRegular.otf  # Custom premium font file
 │
