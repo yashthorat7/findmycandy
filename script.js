@@ -22,10 +22,6 @@ const searchGenerators = {
 
 // -- Retro CRT Effects -------------------------------------------------------
 function createRetroEffects() {
-    const startupEl = document.createElement("div");
-    startupEl.className = "crt-startup";
-    document.body.appendChild(startupEl);
-
     setTimeout(() => {
         document.querySelector("h1").classList.add("pixel-jitter");
         document.querySelector(".search-btn").classList.add("pixel-jitter");
