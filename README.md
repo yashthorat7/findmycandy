@@ -1,4 +1,9 @@
 # 🔍 WhereIsMyCandy  
+
+<p align="center">
+<img src="README-img.png" alt="Password123 Screenshot">
+</p>
+
 A revolutionary web tool that unveils hidden open directories across the internet!
 **WhereIsMyCandy** provides a sleek, intuitive interface for discovering open directories using Google.  
 
