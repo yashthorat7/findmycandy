@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 690 105" width="690" height="105">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686 105" width="686" height="105">
   <style>
     text { 
-      font-family: 'Consolas', 'Monaco', 'Courier New', monospace; 
+      font-family: monospace, 'Consolas', 'Monaco', 'Courier New'; 
       font-size: 14px; 
       fill: #18ff62; 
       white-space: pre; 
