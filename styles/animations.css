@@ -1,0 +1,90 @@
+@keyframes scanline {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.005);
+  }
+}
+
+@keyframes subtle-skew {
+  0% {
+    transform: skewX(0.1deg);
+  }
+
+  8% {
+    transform: skewX(0.3deg);
+  }
+
+  15% {
+    transform: skewX(0.2deg) skewY(-0.02deg);
+  }
+
+  30% {
+    transform: skewX(0.2deg);
+  }
+
+  100% {
+    transform: skewX(0.05deg);
+  }
+}
+
+@keyframes skew {
+  0% {
+    transform: skewX(0.5deg);
+  }
+
+  8% {
+    transform: skewX(1deg) scale(1.0001);
+  }
+
+  15% {
+    transform: skewX(0.6deg) skewY(-0.05deg);
+  }
+
+  30% {
+    transform: skewX(0.6deg);
+  }
+
+  100% {
+    transform: skewX(0.1deg);
+  }
+}
+
+@keyframes glow {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes blur-text {
+  50% {
+    filter: drop-shadow(2px 0 2px rgba(100, 255, 100, 0.9));
+  }
+}
+
+@keyframes blink-cursor {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}

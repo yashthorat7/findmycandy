@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 690 105" width="690" height="105">
+  <style>
+    text { 
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace; 
+      font-size: 14px; 
+      fill: #18ff62; 
+      white-space: pre; 
+      font-weight: bold;
+    }
+  </style>
+  <text x="0" y="0">
+    <tspan x="0" y="15">@@@@@@  @@@@@@  @@  @@  @@@@@   @@   @@  @@   @@   @@@@@   @@@@   @@  @@  @@@@@   @@   @@</tspan>
+    <tspan x="0" y="30">%%        %%    %%% %%  %%  %%  %%% %%%   %% %%   %%      %%  %%  %%% %%  %%  %%   %% %% </tspan>
+    <tspan x="0" y="45">####      ##    ## ###  ##  ##  ## # ##    ###    ##      ######  ## ###  ##  ##    ###  </tspan>
+    <tspan x="0" y="60">!!        !!    !!  !!  !!  !!  !!   !!    !!!    !!      !!  !!  !!  !!  !!  !!    !!!  </tspan>
+    <tspan x="0" y="75">::        ::    ::  ::  ::  ::  ::   ::    :::    ::      ::  ::  ::  ::  ::  ::    :::  </tspan>
+    <tspan x="0" y="90">::      ......  ..  ..  .....   ..   ..    ...     .....  ..  ..  ..  ..  .....     ...  </tspan>
+    <tspan x="0" y="135"></tspan>
+  </text>
+</svg>

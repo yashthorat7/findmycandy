@@ -1,0 +1,20 @@
+#searchInput {
+  background: transparent;
+  border: var(--border-width) solid var(--crt-green);
+  color: var(--crt-green);
+  height: var(--input-height);
+  padding: 12px var(--input-padding-x);
+  font-size: var(--font-size-xl);
+  outline: none;
+  font-family: var(--font-family-mono);
+  animation: blur-text var(--duration-slow) linear infinite;
+}
+
+#searchInput::placeholder {
+  color: rgba(24, 255, 98, 0.5);
+  text-shadow: none;
+}
+
+#searchInput:focus {
+  background: rgba(24, 255, 98, 0.05);
+}

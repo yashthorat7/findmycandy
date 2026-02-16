@@ -1,0 +1,21 @@
+.github-link {
+  color: var(--crt-green);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-md);
+  text-shadow: 0 0 var(--blur-intensity) var(--crt-glow);
+  z-index: var(--z-github-link);
+  transform: translateY(-8px);
+}
+
+.github-link img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) saturate(100%) invert(84%) sepia(71%) saturate(1511%) hue-rotate(66deg) brightness(101%) contrast(101%);
+}
+
+.github-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,21 @@
+.search-btn {
+  background: transparent;
+  border: var(--border-width) solid var(--crt-green);
+  color: var(--crt-green);
+  padding: 0 var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  font-family: var(--font-family-mono);
+  animation: blur-text var(--duration-slow) linear infinite;
+  height: var(--input-height);
+}
+
+.search-btn:hover {
+  background: var(--crt-green);
+  color: var(--bg-black);
+  text-shadow: none;
+}
+
+.search-btn:active {
+  transform: translateY(2px);
+}

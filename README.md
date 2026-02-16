@@ -1,18 +1,20 @@
-# 🔍 WhereIsMyCandy  
+# 🔍 FindMyCandy  
 
 <p align="center">
-<img src="README-img.png" alt="Password123 Screenshot">
+<img src="README-img.png" alt="FindMyCandy Screenshot">
 </p>
 
 A revolutionary web tool that unveils hidden open directories across the internet!
-**WhereIsMyCandy** provides a sleek, intuitive interface for discovering open directories using Google.  
+**FindMyCandy** provides a sleek, intuitive interface for discovering open directories using Google.  
 
 
 ## ✨ Features  
 
 - 🧠 **Intelligent Directory Search**: Discover massive archives of content other search engines can't find!
 - 🎯 **Smart File Type Detection**: Automatically identifies and categorizes content types for precision searching
-- 🔄 **Advanced Filtering System**: Filter searches by videos, music, images, documents, software, torrents, and Google Drive
+- 🔄 **Advanced Filtering System**: Filter searches by videos, music, images, documents, books, archives, code, software, and Google Drive
+- 📡 **Open FTP Search**: Dedicated mode for finding open FTP servers
+- 🛡️ **Clean Results**: Automatically filters out generic web pages (php, html) to show only true open directories
 - 🎨 **Premium Dark UI**: Eye-catching dark-themed interface designed for extended search sessions
 - 💬 **Dynamic Message Carousel**: Rotating inspirational and mysterious search messages to enhance your experience
 - 📱 **Seamless Device Adaptation**: Perfectly optimized for all devices from desktop to mobile
@@ -22,33 +24,59 @@ A revolutionary web tool that unveils hidden open directories across the interne
 ## 📂 Directory Structure  
 
 ```
-🌟 WhereIsMyCandy/
+🌟 FindMyCandy/
 ├── 🖼️ assets/
+│   ├── cursor.svg                 # Custom retro cursor
 │   ├── favicon.ico                # Website favicon
-│   └── ForeverFreedomRegular.otf  # Custom premium font file
+│   ├── github.svg                 # GitHub social icon
+│   └── title.svg                  # SVG Title logo
 │
-├── index.html                     # Clean HTML structure
-├── script.js                      # Powerful search functionality
-├── styles.css                     # Elegant styling
+├── 📜 scripts/                    # Modular JavaScript logic
+│   ├── constants.js               # Configuration & file mapping
+│   ├── dropdown-ui.js             # Custom dropdown component
+│   ├── font-loader.js             # Font loading utility
+│   ├── main.js                    # Application entry point
+│   ├── message-carousel.js        # Dynamic text typing effect
+│   ├── messages.js                # Carousel text data
+│   └── search-engine.js           # Google Dork query generation
+│
+├── 🎨 styles/                     # Modular CSS stylesheets
+│   ├── animations.css             # Keyframe animations (glitch, blur)
+│   ├── button.css                 # Search button styling
+│   ├── crt-effects.css            # Scanlines, glow, curvature
+│   ├── dropdown.css               # Custom dropdown styling
+│   ├── github-link.css            # Footer link styling
+│   ├── input.css                  # Search input styling
+│   ├── layout.css                 # Core flexbox layout
+│   ├── main.css                   # Central CSS import file
+│   ├── message-carousel.css       # Typing text styling
+│   ├── reset.css                  # CSS Reset & base styles
+│   ├── responsive.css             # Mobile & Tablet adaptations
+│   ├── scrollbar.css              # Custom scrollbars
+│   └── variables.css              # Global CSS variables (colors, fonts)
+│
+├── .gitignore                     # Git ignore file
+├── index.html                     # Main HTML structure
+├── README-img.png                 # Project screenshot
 └── README.md                      # Project documentation
 ```
 ---
 
 ## 📄 Getting Started  
 
-Follow these simple steps to unlock the power of WhereIsMyCandy on your system:  
+Follow these simple steps to unlock the power of FindMyCandy on your system:  
 
 ### 1️⃣ Clone the Repository  
 Clone the repository to your local machine:  
 ```bash
-git clone https://github.com/yashthorat7/WhereIsMyCandy.git
+git clone https://github.com/yashthorat7/FindMyCandy.git
 ```
 
 ### 2️⃣ Opening the Application  
 No complex setup required! Simply open index.html in your browser:
 ```bash
 # Navigate to the directory
-cd WhereIsMyCandy
+cd FindMyCandy
 
 # On Windows
 start index.html
@@ -70,22 +98,24 @@ start index.html
 - 🎵 **Music**: Discover endless MP3, WAV, FLAC, AAC, M4A, OGG, and other audio treasures
 - 🖼️ **Images**: Access massive collections of JPG, PNG, GIF, BMP, WEBP, SVG, and professional formats
 - 📄 **Documents**: Find comprehensive archives of PDF, DOC, XLSX, PPT, EPUB, and dozens more document types
-- 💿 **Software**: Locate EXE, MSI, ZIP, RAR, ISO, APK, and various other application formats
-- 🌊 **Torrents**: Direct access to torrent files across the web
+- � **Books & Comics**: Huge libraries of EPUB, MOBI, PDF, CBZ, and CBR files
+- 📦 **Archives**: Find compressed treasures in ZIP, RAR, 7Z, ISO, and more
+- 💻 **Code Repositories**: Locate source code in Python, JavaScript, C++, and other languages
+- 💾 **Software**: Locate EXE, MSI, APK, and various other application formats
 - 🌐 **Google Drive**: Specialized search for content stored in Google Drive repositories
 
 ## 📋 Technologies  
 
 - 💻 **HTML5**: Modern semantic structure with optimized performance
-- 🎨 **CSS3**: Responsive styling with elegant animations
-- 🧩 **JavaScript**: Sophisticated search algorithms with vanilla JS
-- 🔤 **Custom Typography**: Forever Freedom font for the distinctive title styling
+- 🎨 **CSS3**: Responsive styling with elegant animations and modular architecture
+- 🧩 **JavaScript**: Sophisticated search algorithms with vanilla JS (ES6 Modules)
+- 🔤 **Custom Typography**: VT323 font for the distinctive retro terminal styling
 - 🔄 **Dynamic Content**: Interactive UI elements that respond to user interaction
 
 ## 🚀 Special Features
 
-- 📱 **Mobile Optimization**: Perfect touch controls for mobile devices
-- 🌗 **Eye-Friendly Interface**: Dark theme that reduces eye strain during extended searches
+- 🧠 **Smart Dropdown**: Dynamically adjusts menu height to prevent overlapping with the footer
+- 📱 **Mobile Optimization**: Perfect touch controls with solid backgrounds for better readability
 - 🔍 **Context-Aware Searching**: Automatically detects years and other patterns in your queries
 - 🌐 **Multi-Platform Support**: Works flawlessly across all modern browsers
 

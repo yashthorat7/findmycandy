@@ -1,39 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <title>WhereIsMyCandy</title>
+    <title>FindMyCandy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>WHEREISMYCANDY</h1>
-        <div class="search-container">
-            <div class="search-wrapper">
-                <input type="text" id="searchInput" placeholder=">_">
-                <div class="search-row">
-                    <div class="dropdown-wrapper">
-                        <select class="filter-select">
-                            <option value="all">All</option>
-                            <option value="video">Videos</option>
-                            <option value="music">Music</option>
-                            <option value="image">Images</option>
-                            <option value="document">Documents</option>
-                            <option value="software">Software</option>
-                            <option value="drive">Google Drive</option>
-                        </select>
+    <div id="crt">
+        <div id="screen">
+            <div id="wrapper">
+                <div id="interlace"></div>
+                <div id="scanline"></div>
+                <div id="envelope">
+                    <div class="container">
+                        <div class="content-wrapper">
+                            <img src="assets/title.svg" alt="FINDMYCANDY" class="title-svg">
+                            <div class="search-container">
+                                <div class="search-wrapper">
+                                    <input type="text" id="searchInput" placeholder=">_" autocomplete="off">
+                                    <div class="search-row">
+                                        <div class="dropdown-wrapper">
+                                            <div class="custom-dropdown" id="filterDropdown">
+                                                <div class="selected-option">All</div>
+                                                <div class="dropdown-arrow"></div>
+                                                <div class="options-list">
+                                                    <div class="option selected" data-value="all">All</div>
+                                                    <div class="option" data-value="video">Videos</div>
+                                                    <div class="option" data-value="music">Music</div>
+                                                    <div class="option" data-value="image">Images</div>
+                                                    <div class="option" data-value="document">Documents</div>
+                                                    <div class="option" data-value="book">Books / Comics</div>
+                                                    <div class="option" data-value="archive">Archives</div>
+                                                    <div class="option" data-value="software">Software</div>
+                                                    <div class="option" data-value="code">Code</div>
+                                                    <div class="option" data-value="drive">Google Drive</div>
+                                                    <div class="option" data-value="ftp">Open FTP</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="search-btn">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <button class="search-btn">Search</button>
+                    <div class="footer">
+                        <div class="message-carousel"></div>
+                        <a href="https://github.com/yashthorat7" target="_blank" class="github-link">
+                            <img src="assets/github.svg" alt="GitHub" width="24" height="24">
+                            <span>yashthorat7</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="message-carousel"></div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="scripts/main.js"></script>
 </body>
+
 </html>
