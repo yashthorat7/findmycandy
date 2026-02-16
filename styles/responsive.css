@@ -13,63 +13,132 @@
 
   .dropdown-wrapper {
     flex: 2;
+    margin-left: 0;
   }
 
   .search-btn {
+    padding: var(--spacing-xs);
     flex: 1;
+    height: var(--input-height) !important;
   }
 
   #searchInput {
     border-right: var(--border-width) solid var(--crt-green);
     border-bottom: var(--border-width) solid var(--crt-green);
     width: 100%;
-    height: auto !important;
+    height: var(--input-height) !important;
   }
 
   .custom-dropdown {
     border-right: var(--border-width) solid var(--crt-green);
     border-bottom: var(--border-width) solid var(--crt-green);
+    height: var(--input-height) !important;
   }
 }
 
 @media (max-width: 600px) {
+  #crt {
+    padding: 0;
+    background: #001f0c;
+    overflow: hidden;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+  }
+
+  #screen {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    background: #001f0c;
+    overflow: hidden;
+  }
+
+  #envelope {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .container {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    overflow: visible;
+    z-index: auto;
+  }
+
+  .content-wrapper {
+    margin-bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .title-svg {
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .search-row {
     flex-direction: column;
+    gap: 0.75rem;
   }
 
   .dropdown-wrapper,
   .search-btn {
     width: 100%;
-    flex: none;
+    height: var(--input-height) !important;
   }
 
-  #crt {
-    padding: 10px;
-    box-sizing: border-box;
-    background: var(--crt-chassis);
-    box-shadow: none !important;
-    border: none !important;
+  .options-list {
+    background: rgb(0, 29, 12);
   }
 
-  #screen,
-  #wrapper,
-  .container {
-    box-shadow: none !important;
-    border: none !important;
-    outline: none !important;
+  .custom-dropdown {
+    height: var(--input-height) !important;
   }
 
-  #screen {
+  .footer {
+    position: relative;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: #001f0c;
+    margin-top: auto;
+    pointer-events: auto;
+  }
+
+  .github-link {
+    font-size: var(--font-size-xs);
+  }
+
+  .message-carousel {
+    text-align: center;
     width: 100%;
-    background: #111;
-    border-radius: 20px;
-    box-shadow: none !important;
-    border: none !important;
-    outline: none !important;
-    top: 0;
-    left: 0;
-    display: block;
-    min-height: calc(100vh - 20px);
+    font-size: var(--font-size-xs);
+  }
+
+  #searchInput {
+    transform: none !important;
   }
 
   #interlace,
@@ -79,45 +148,35 @@
   #wrapper::before,
   #wrapper::after {
     display: none !important;
-    content: none !important;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+    text-shadow: none !important;
+    filter: none !important;
     box-shadow: none !important;
   }
 
+  #wrapper {
+    animation: none !important;
+  }
+
   #envelope {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    overflow: visible;
-  }
-
-  .container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
-    padding-top: 0;
-  }
-
-  .footer {
-    position: relative;
-    margin-top: auto;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 1em;
+    animation: none !important;
   }
 
   .title-svg {
-    width: 100%;
-    margin-bottom: 1.5em;
+    filter: none !important;
+    animation: none !important;
   }
 
-  #searchInput {
-    transform: none;
-  }
-
-  .options-list {
-    background: #000 !important;
+  #searchInput,
+  .custom-dropdown,
+  .search-btn,
+  .selected-option,
+  .option {
+    text-shadow: none !important;
+    animation: none !important;
   }
 }
