@@ -17,5 +17,5 @@
 }
 
 .search-btn:active {
-  transform: translateY(2px);
+  transform: none;
 }

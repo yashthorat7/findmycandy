@@ -18,3 +18,8 @@
 #searchInput:focus {
   background: rgba(24, 255, 98, 0.05);
 }
+
+#searchInput::selection {
+  background: var(--crt-green);
+  color: var(--bg-black);
+}
