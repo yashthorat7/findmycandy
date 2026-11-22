@@ -24,17 +24,20 @@ class App {
   }
 
   attachHandlers() {
-    const input = document.getElementById("searchInput");
-    const btn = document.querySelector(".search-btn");
+    const input = document.getElementById('searchInput');
+    const btn = document.querySelector('.search-btn');
 
-    btn.addEventListener("click", () => this.search.search(input.value));
-    input.addEventListener("keypress", e => {
-      if (e.key === "Enter") this.search.search(input.value);
+    btn.addEventListener('click', () => this.search.search(input.value));
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        this.search.search(input.value);
+      }
     });
   }
 
   async initFonts() {
-    this.font = new FontLoader("VT323");
+    this.font = new FontLoader('VT323');
     await this.font.load();
   }
 
@@ -44,4 +47,4 @@ class App {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => new App().start());
+document.addEventListener('DOMContentLoaded', () => new App().start());

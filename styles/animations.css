@@ -5,3 +5,5 @@
 @keyframes glow { 50% { transform: scale(1.2); } }
 @keyframes blur-text { 50% { filter: drop-shadow(2px 0 2px rgba(100, 255, 100, 0.9)); } }
 @keyframes blink-cursor { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+@keyframes input-shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-5px); } 40%, 80% { transform: translateX(5px); } }
+.input-shake { animation: input-shake 0.3s ease-in-out !important; }

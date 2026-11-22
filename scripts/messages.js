@@ -8,5 +8,6 @@ export const messages = [
   "the name of this website is completely intentional",
   "made by yash thorat",
   "i am not sorry for making this",
-  "now with Google Drive search support!"
+  "beast mode movie & video search engine loaded",
+  "high-precision open directory dorking active"
 ];

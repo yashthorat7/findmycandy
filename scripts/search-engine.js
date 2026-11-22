@@ -1,4 +1,4 @@
-import { fileTypes, searchGenerators, CONFIG } from './constants.js';
+import { CATEGORIES, DORK_SIGNATURES, CONFIG } from './constants.js';
 
 class SearchEngine {
   constructor() {
@@ -6,26 +6,86 @@ class SearchEngine {
   }
 
   setFilter(f) {
-    this.filter = f;
+    const aliasMap = {
+      music: 'audio',
+      book: 'document',
+      books: 'document',
+      doc: 'document',
+      docs: 'document',
+      archive: 'software',
+      archives: 'software',
+      app: 'software',
+      apps: 'software',
+      videos: 'video',
+      movie: 'video',
+      movies: 'video'
+    };
+    const normalized = aliasMap[f] || f;
+    this.filter = CATEGORIES[normalized] ? normalized : 'all';
   }
 
-  generateQuery(q) {
-    if (this.filter === "drive") return searchGenerators.drive(q);
-    if (this.filter === "ftp") return searchGenerators.ftp(q);
-    if (this.filter === "all") {
-      const all = [fileTypes.video, fileTypes.music, fileTypes.image, fileTypes.document, fileTypes.software].join("|");
-      return searchGenerators.directory(q, all);
+  getFilter() {
+    return this.filter;
+  }
+
+  sanitize(rawQuery) {
+    if (!rawQuery) return '';
+    let q = rawQuery.trim().replace(/\s+/g, ' ');
+
+    const quoteMatches = q.match(/"/g);
+    if (quoteMatches && quoteMatches.length % 2 !== 0) {
+      q = q.replace(/"/g, '');
     }
-    return searchGenerators.directory(q, fileTypes[this.filter]);
+
+    q = q.replace(/\s+-\s+/g, ' ');
+    q = q.replace(/(?<=\s)-(?=[a-zA-Z0-9])/g, '');
+
+    return q.trim();
   }
 
-  search(q) {
-    const query = q.trim();
+  generateQuery(rawQuery) {
+    const q = this.sanitize(rawQuery);
+    const category = CATEGORIES[this.filter] || CATEGORIES.all;
+    const parts = [];
+
+    if (q) {
+      parts.push(q);
+    }
+
+    parts.push(DORK_SIGNATURES.title);
+    parts.push(DORK_SIGNATURES.serverHeaders);
+
+    if (category.extensions) {
+      parts.push(`(${category.extensions})`);
+    }
+
+    parts.push(DORK_SIGNATURES.urlExclusions);
+
+    if (category.negativeTerms && category.negativeTerms.length > 0) {
+      const negatives = category.negativeTerms.map(term => `-${term}`).join(' ');
+      parts.push(negatives);
+    }
+
+    return parts.join(' ');
+  }
+
+  search(rawQuery) {
+    const query = this.sanitize(rawQuery);
     if (!query) {
       navigator.vibrate?.(CONFIG.VIBRATION_DURATION);
+      const input = document.getElementById("searchInput");
+      if (input) {
+        input.focus();
+        input.classList.remove('input-shake');
+        void input.offsetWidth;
+        input.classList.add('input-shake');
+      }
       return false;
     }
-    window.open(`https://www.google.com/search?q=${encodeURIComponent(this.generateQuery(query))}`, "_blank");
+
+    const dork = this.generateQuery(query);
+    const targetUrl = `https://www.google.com/search?q=${encodeURIComponent(dork)}`;
+    window.open(targetUrl, "_blank");
     return true;
   }
 }

@@ -11,14 +11,13 @@ A revolutionary web tool that unveils hidden open directories across the interne
 ## ✨ Features  
 
 - 🧠 **Intelligent Directory Search**: Discover massive archives of content other search engines can't find!
-- 🎯 **Smart File Type Detection**: Automatically identifies and categorizes content types for precision searching
-- 🔄 **Advanced Filtering System**: Filter searches by videos, music, images, documents, books, archives, code, software, Google Drive, and Open FTP
-- 📡 **Open FTP Search**: Dedicated mode for finding open FTP servers
-- 🛡️ **Clean Results**: Automatically filters out generic web pages (php, html) to show only true open directories
+- 🎯 **Streamlined Category Engine**: Focused on 5 high-yield categories: All Files, Movies & Videos, Music & Audio, Books & Documents, and Software & Apps
+- 🎬 **Berserk Video Search Mode**: High-power multi-container dorking engine targeting 13+ formats with automated anti-pollution filters
+- 🛡️ **Clean & Relevant Results**: Automatically filters out web scripts (php, html, asp, jsp), trailers, torrents, and sample clips
 - 🎨 **Retro Terminal UI**: Eye-catching retro-themed interface with CRT scanlines and screen glow, designed for nostalgic search sessions
 - 💬 **Dynamic Message Carousel**: Rotating inspirational and mysterious search messages to enhance your experience
 - 📱 **Seamless Device Adaptation**: Perfectly optimized for all devices from desktop to mobile
-- 🚀 **Lightning-Fast Results**: Get instant access to vast libraries of content with a single search
+- 🚀 **Lightning-Fast Results**: Instant direct access to vast libraries of content with a single search
 - 🕵️ **Zero-Trace Searching**: Your searches remain completely private
 
 ## 📂 Directory Structure  
@@ -94,16 +93,11 @@ start index.html
 
 ## 🔍 Advanced Search Capabilities  
 
-- 🎬 **Videos**: Uncover vast libraries of MP4, MKV, AVI, MOV, WMV, FLV, WEBM, MPEG, and many more
-- 🎵 **Music**: Discover endless MP3, WAV, FLAC, AAC, M4A, OGG, and other audio treasures
-- 🖼️ **Images**: Access massive collections of JPG, PNG, GIF, BMP, WEBP, SVG, and professional formats
-- 📄 **Documents**: Find comprehensive archives of PDF, DOC, XLSX, PPT, EPUB, and dozens more document types
-- 📚 **Books & Comics**: Huge libraries of EPUB, MOBI, PDF, CBZ, and CBR files
-- 📦 **Archives**: Find compressed treasures in ZIP, RAR, 7Z, ISO, and more
-- 💻 **Code Repositories**: Locate source code in Python, JavaScript, HTML, CSS, PHP, C++, and other languages
-- 💾 **Software**: Locate EXE, MSI, APK, and various other application formats
-- 🌐 **Google Drive**: Specialized search for content stored in Google Drive repositories
-- 📡 **Open FTP**: Specialized mode for discovering content on open FTP servers
+- 🎬 **Movies & Videos (Berserk Mode)**: High-yield dork covering MKV, MP4, AVI, MOV, WMV, FLV, WEBM, M4V, TS, VOB, MPG, and DIVX, with strict exclusions for trailers, torrent files, and test sample clips
+- 🎵 **Music & Audio**: Discover pristine discographies and tracks across MP3, FLAC, WAV, M4A, AAC, OGG, ALAC, OPUS, and WMA, stripped of lyrics and torrent spam
+- 📚 **Books & Documents**: Extensive libraries of PDF, EPUB, MOBI, CBR, CBZ, AZW3, DJVU, and DOCX files
+- 💾 **Software & Apps**: Find direct installers, disk images, tools, and archives in EXE, ISO, APK, DMG, MSI, ZIP, RAR, 7Z, and TAR
+- 🌐 **All Files**: Broad universal open directory discovery across all digital asset formats
 
 ## 📋 Technologies  
 

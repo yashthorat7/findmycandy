@@ -8,28 +8,52 @@ class DropdownUI {
     const dd = document.getElementById(this.id);
     const selected = dd.querySelector('.selected-option');
     const options = dd.querySelectorAll('.option');
-
     const list = dd.querySelector('.options-list');
+
     const adjustHeight = () => {
       const ddRect = dd.getBoundingClientRect();
       const footer = document.querySelector('.footer') || document.querySelector('.github-link');
-      const limit = footer ? footer.getBoundingClientRect().top : window.innerHeight;
-      const available = limit - ddRect.bottom + 20;
-      list.style.setProperty('--dynamic-max-height', `${Math.max(100, available)}px`);
+      const footerTop = footer ? footer.getBoundingClientRect().top : window.innerHeight;
+      const maxBottom = Math.min(footerTop, window.innerHeight);
+      const available = Math.max(80, Math.floor(maxBottom - ddRect.bottom - 16));
+      list.style.maxHeight = `${available}px`;
     };
 
     dd.addEventListener('click', e => {
       e.stopPropagation();
-      if (!dd.classList.contains('open')) adjustHeight();
-      dd.classList.toggle('open');
+      const willOpen = !dd.classList.contains('open');
+      if (willOpen) {
+        adjustHeight();
+        dd.classList.add('open');
+      } else {
+        list.style.maxHeight = '';
+        dd.classList.remove('open');
+      }
     });
 
     window.addEventListener('resize', () => {
       if (dd.classList.contains('open')) adjustHeight();
     });
 
+    if (window.ResizeObserver) {
+      new ResizeObserver(() => {
+        if (dd.classList.contains('open')) adjustHeight();
+      }).observe(document.body);
+    }
+
+    const closeDropdown = () => {
+      if (dd.classList.contains('open')) {
+        list.style.maxHeight = '';
+        dd.classList.remove('open');
+      }
+    };
+
     document.addEventListener('click', e => {
-      if (!dd.contains(e.target)) dd.classList.remove('open');
+      if (!dd.contains(e.target)) closeDropdown();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeDropdown();
     });
 
     options.forEach(opt => {
@@ -37,7 +61,7 @@ class DropdownUI {
         e.stopPropagation();
         const val = opt.dataset.value;
         selected.textContent = opt.textContent;
-        dd.classList.remove('open');
+        closeDropdown();
         options.forEach(o => o.classList.remove('selected'));
         opt.classList.add('selected');
         this.onChange?.(val, opt.textContent);

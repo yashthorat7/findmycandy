@@ -8,6 +8,8 @@
   font-family: var(--font-family-mono);
   animation: blur-text var(--duration-slow) linear infinite;
   height: var(--input-height);
+  margin-left: calc(-1 * var(--border-width));
+  transition: background var(--duration-fast), color var(--duration-fast);
 }
 
 .search-btn:hover {

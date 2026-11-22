@@ -8,7 +8,6 @@
 .custom-dropdown {
   background: transparent;
   border: var(--border-width) solid var(--crt-green);
-  border-right: none;
   height: var(--input-height);
   position: relative;
   color: var(--crt-green);
@@ -19,10 +18,12 @@
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 var(--input-padding-x);
+  padding: 0 35px 0 var(--input-padding-x);
   font-size: var(--font-size-lg);
   text-shadow: 0 0 var(--blur-intensity) var(--crt-glow);
   animation: blur-text var(--duration-slow) linear infinite;
+  white-space: nowrap;
+  user-select: none;
 }
 
 .dropdown-arrow {
@@ -36,6 +37,7 @@
   border-right: 6px solid transparent;
   border-top: 6px solid var(--crt-green);
   transition: transform var(--duration-fast);
+  pointer-events: none;
 }
 
 .custom-dropdown.open .dropdown-arrow {
@@ -45,34 +47,50 @@
 .options-list {
   position: absolute;
   top: 100%;
-  left: -1px;
-  width: calc(100% + 3px);
-  background: rgba(0, 63, 31, 0.9);
+  left: calc(-1 * var(--border-width));
+  right: calc(-1 * var(--border-width));
+  width: auto;
+  background: transparent;
   border: var(--border-width) solid var(--crt-green);
   border-top: none;
   max-height: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: var(--z-dropdown);
   transition: max-height var(--duration-normal) ease;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.options-list::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .custom-dropdown.open .options-list {
   max-height: var(--dynamic-max-height, 50vh);
-  overflow-y: auto;
 }
 
 .option {
-  padding: var(--spacing-xs) var(--input-padding-x);
+  padding: 8px var(--input-padding-x);
   font-size: var(--font-size-md);
   border-bottom: 1px solid rgba(24, 255, 98, 0.2);
   color: var(--crt-green);
   text-shadow: 0 0 var(--blur-intensity) var(--crt-glow);
+  white-space: nowrap;
+  user-select: none;
+  transition: background var(--duration-fast), color var(--duration-fast);
 }
 
 .option:hover {
   background: var(--crt-green);
   color: var(--bg-black);
   text-shadow: none;
+}
+
+.option:last-child {
+  border-bottom: none;
 }
 
 .option.selected {
